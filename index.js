@@ -3,14 +3,14 @@
 
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 7004;
 
 
 //#region MiddleWares
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended:true}));
+// app.use(bodyParser.json());
 app.use(express.static("public"));
 
 console.log(__dirname)
