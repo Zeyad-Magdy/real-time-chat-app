@@ -3,14 +3,16 @@
 
 const express = require("express");
 const app = express();
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 7004;
 
 
 //#region MiddleWares
-// app.use(bodyParser.urlencoded({extended:true}));
-// app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+app.set('views', './views'); // Set the views directory
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 app.use(express.static("public"));
 
 console.log(__dirname)
@@ -31,8 +33,7 @@ io.on("connection",(socket)=>{
     })
 })
 
-app.get('/',(req,res)=>{
-    // res.render("index.html")
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-})
+app.get('/', (req, res) => {
+    res.render("index"); // This will render the index.ejs file from the views directory
+});
 
