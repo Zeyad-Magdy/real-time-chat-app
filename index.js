@@ -32,6 +32,7 @@ io.on("connection",(socket)=>{
 })
 
 app.get('/',(req,res)=>{
-    res.render("index.html")
+    // res.render("index.html")
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
